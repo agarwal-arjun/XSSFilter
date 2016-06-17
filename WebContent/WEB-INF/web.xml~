@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>MerchantWebsite</display-name>
+	
+	<!-- XSS and HTML Injection FailSafe Filter -->
+	<filter>
+		<description>Escapes HTML to safeguard against XSS and HTML Injection</description>
+		<display-name>XSSFilter</display-name>
+		<filter-name>XSSFilter</filter-name>
+		<filter-class>com.filters.XSSFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>XSSFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	<!-- Filter Configuration End -->
+	
+     <!-- Spring Beans configuration starts here -->
+	<welcome-file-list>
+	   <welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Define Servelet Here-->
+ 
+</web-app>
