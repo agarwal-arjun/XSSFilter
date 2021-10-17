@@ -1,2 +1,2 @@
 # XSSFilter
-filter for removing XSS attack
+This project will be helpful for filter for removing XSS attack
